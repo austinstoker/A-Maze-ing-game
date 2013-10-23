@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
+
+#define kUpdateInterval (1.0f / 60.0f)
+
+#import <QuartzCore/CAAnimation.h>//;
+
 
 @interface xyzViewController : UIViewController
 
@@ -24,16 +30,10 @@
 @property (assign, nonatomic) CGFloat pacmanXVelocity;
 @property (assign, nonatomic) CGFloat pacmanYVelocity;
 @property (assign, nonatomic) CGFloat angle;
-@property (assign, nonatomic) UIAcceleration *acceleration;
-//@property (strong, nonatomic) CMMotionManager  *motionManager;
+@property (assign, nonatomic) CMAcceleration acceleration;
+@property (strong, nonatomic) CMMotionManager  *motionManager;
 @property (strong, nonatomic) NSOperationQueue *queue;
 @property (strong, nonatomic) NSDate *lastUpdateTime;
-
-#import <CoreMotion/CoreMotion.h>
-
-#define kUpdateInterval (1.0f / 60.0f)
-
-#import <QuartzCore/CAAnimation.h>//;
 
 @end
 

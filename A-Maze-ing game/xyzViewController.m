@@ -16,20 +16,20 @@
 
 - (void)viewDidLoad
 // Movement of pacman
-
-self.lastUpdateTime = [[NSDate alloc] init];
-
-self.currentPoint  = CGPointMake(0, 144);
-self.motionManager = [[CMMotionManager alloc]  init];
-self.queue         = [[NSOperationQueue alloc] init];
-
-self.motionManager.accelerometerUpdateInterval = kUpdateInterval;
-
-[self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:
- ^(CMAccelerometerData *accelerometerData, NSError *error) {
-     [(id) self setAcceleration:accelerometerData.acceleration];
-     [self performSelectorOnMainThread:@selector(update) withObject:nil waitUntilDone:NO];
- }];
+{
+    self.lastUpdateTime = [[NSDate alloc] init];
+    
+    self.currentPoint  = CGPointMake(0, 144);
+    self.motionManager = [[CMMotionManager alloc]  init];
+    self.queue         = [[NSOperationQueue alloc] init];
+    
+    self.motionManager.accelerometerUpdateInterval = kUpdateInterval;
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:
+     ^(CMAccelerometerData *accelerometerData, NSError *error) {
+         [(id) self setAcceleration:accelerometerData.acceleration];
+         [self performSelectorOnMainThread:@selector(update) withObject:nil waitUntilDone:NO];
+     }];
 
 CGPoint origin1 = self.ghost1.center;
 CGPoint target1 = CGPointMake(self.ghost1.center.x, self.ghost1.center.y-124);
@@ -62,12 +62,11 @@ bounce3.duration = 2;
 bounce3.repeatCount = HUGE_VALF;
 bounce3.autoreverses = YES;
 [self.ghost3.layer addAnimation:bounce3 forKey:@"position"];
-
+ }
 {
-        [super viewDidLoad];
+[super viewDidLoad]
 	// Do any additional setup after loading the view, typically from a nib.
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -97,7 +96,7 @@ bounce3.autoreverses = YES;
     
     [self collisionWithGhosts];
     
-    [self collisionWithWalls];
+    [self collsionWithWalls];
 
     [self collisionWithBoundaries];
 
