@@ -23,12 +23,12 @@
 		048EFA651813441100A0E7CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048EFA401813441000A0E7CE /* Foundation.framework */; };
 		048EFA6D1813441100A0E7CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 048EFA6B1813441100A0E7CE /* InfoPlist.strings */; };
 		048EFA701813441100A0E7CE /* A_Maze_ing_gameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EFA6F1813441100A0E7CE /* A_Maze_ing_gameTests.m */; };
-		048EFA7C1813454A00A0E7CE /* pacman.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EFA7B1813454A00A0E7CE /* pacman.png */; };
-		048EFA7E1813457400A0E7CE /* squareWall.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EFA7D1813457400A0E7CE /* squareWall.png */; };
-		048EFA801813458A00A0E7CE /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EFA7F1813458A00A0E7CE /* ghost.png */; };
-		048EFA8218134B5D00A0E7CE /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EFA8118134B5D00A0E7CE /* exit.png */; };
 		048EFA841813524D00A0E7CE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048EFA831813524D00A0E7CE /* CoreMotion.framework */; };
 		048EFA861813528900A0E7CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048EFA851813528900A0E7CE /* QuartzCore.framework */; };
+		C99E25F518196C2B00575FEE /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = C99E25F118196C2B00575FEE /* exit.png */; };
+		C99E25F618196C2B00575FEE /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = C99E25F218196C2B00575FEE /* ghost.png */; };
+		C99E25F718196C2B00575FEE /* pacman.png in Resources */ = {isa = PBXBuildFile; fileRef = C99E25F318196C2B00575FEE /* pacman.png */; };
+		C99E25F818196C2B00575FEE /* squareWall.png in Resources */ = {isa = PBXBuildFile; fileRef = C99E25F418196C2B00575FEE /* squareWall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +64,12 @@
 		048EFA6C1813441100A0E7CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		048EFA6E1813441100A0E7CE /* A_Maze_ing_gameTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A_Maze_ing_gameTests.h; sourceTree = "<group>"; };
 		048EFA6F1813441100A0E7CE /* A_Maze_ing_gameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = A_Maze_ing_gameTests.m; sourceTree = "<group>"; };
-		048EFA7B1813454A00A0E7CE /* pacman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pacman.png; path = "../../../../../Downloads/maze-game-images/pacman.png"; sourceTree = "<group>"; };
-		048EFA7D1813457400A0E7CE /* squareWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squareWall.png; path = "../../../../../Downloads/maze-game-images 2/squareWall.png"; sourceTree = "<group>"; };
-		048EFA7F1813458A00A0E7CE /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghost.png; path = "../../../../../Downloads/maze-game-images/ghost.png"; sourceTree = "<group>"; };
-		048EFA8118134B5D00A0E7CE /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exit.png; path = "../../../../../Downloads/maze-game-images/exit.png"; sourceTree = "<group>"; };
 		048EFA831813524D00A0E7CE /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		048EFA851813528900A0E7CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C99E25F118196C2B00575FEE /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exit.png; path = "../../../../Downloads/maze-game-images/exit.png"; sourceTree = "<group>"; };
+		C99E25F218196C2B00575FEE /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghost.png; path = "../../../../Downloads/maze-game-images/ghost.png"; sourceTree = "<group>"; };
+		C99E25F318196C2B00575FEE /* pacman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pacman.png; path = "../../../../Downloads/maze-game-images/pacman.png"; sourceTree = "<group>"; };
+		C99E25F418196C2B00575FEE /* squareWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squareWall.png; path = "../../../../Downloads/maze-game-images/squareWall.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +146,10 @@
 		048EFA451813441000A0E7CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				048EFA8118134B5D00A0E7CE /* exit.png */,
-				048EFA7F1813458A00A0E7CE /* ghost.png */,
-				048EFA7D1813457400A0E7CE /* squareWall.png */,
-				048EFA7B1813454A00A0E7CE /* pacman.png */,
+				C99E25F118196C2B00575FEE /* exit.png */,
+				C99E25F218196C2B00575FEE /* ghost.png */,
+				C99E25F318196C2B00575FEE /* pacman.png */,
+				C99E25F418196C2B00575FEE /* squareWall.png */,
 				048EFA461813441000A0E7CE /* A-Maze-ing game-Info.plist */,
 				048EFA471813441000A0E7CE /* InfoPlist.strings */,
 				048EFA4A1813441000A0E7CE /* main.m */,
@@ -253,14 +253,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				048EFA491813441000A0E7CE /* InfoPlist.strings in Resources */,
+				C99E25F518196C2B00575FEE /* exit.png in Resources */,
 				048EFA511813441000A0E7CE /* Default.png in Resources */,
+				C99E25F818196C2B00575FEE /* squareWall.png in Resources */,
 				048EFA531813441000A0E7CE /* Default@2x.png in Resources */,
 				048EFA551813441000A0E7CE /* Default-568h@2x.png in Resources */,
+				C99E25F718196C2B00575FEE /* pacman.png in Resources */,
 				048EFA5B1813441000A0E7CE /* xyzViewController.xib in Resources */,
-				048EFA7C1813454A00A0E7CE /* pacman.png in Resources */,
-				048EFA7E1813457400A0E7CE /* squareWall.png in Resources */,
-				048EFA801813458A00A0E7CE /* ghost.png in Resources */,
-				048EFA8218134B5D00A0E7CE /* exit.png in Resources */,
+				C99E25F618196C2B00575FEE /* ghost.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +478,7 @@
 				048EFA751813441100A0E7CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		048EFA761813441100A0E7CE /* Build configuration list for PBXNativeTarget "A-Maze-ing gameTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +487,7 @@
 				048EFA781813441100A0E7CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
