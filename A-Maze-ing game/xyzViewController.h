@@ -14,7 +14,7 @@
 #import <QuartzCore/CAAnimation.h>//;
 
 
-@interface xyzViewController : UIViewController
+@interface xyzViewController : UIViewController<UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *pacman;
 @property (strong, nonatomic) IBOutlet UIImageView *ghost2;

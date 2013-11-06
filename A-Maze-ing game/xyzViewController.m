@@ -13,10 +13,29 @@
 @end
 
 @implementation xyzViewController
+{
+    bool m_frozen;
+    int xpts[20];
+    int ypts[20];
+}
 
 - (void)viewDidLoad
 // Movement of pacman
 {
+    
+    xpts[0]=30;
+    ypts[0]=30;
+    
+    xpts[1]=300;
+    ypts[1]=100;
+    for(int i=2;i<20;++i)
+    {
+        xpts[i] = i*50-300;
+        ypts[i]=i*50-300;
+    }
+    
+    
+    m_frozen=false;
     self.lastUpdateTime = [[NSDate alloc] init];
     
     self.currentPoint  = CGPointMake(0, 144);
@@ -62,8 +81,6 @@ bounce3.duration = 2;
 bounce3.repeatCount = HUGE_VALF;
 bounce3.autoreverses = YES;
 [self.ghost3.layer addAnimation:bounce3 forKey:@"position"];
- 
-
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -76,17 +93,24 @@ bounce3.autoreverses = YES;
     
     NSTimeInterval secondsSinceLastDraw = -([self.lastUpdateTime timeIntervalSinceNow]);
     
-    self.pacmanYVelocity = self.pacmanYVelocity - (self.acceleration.x * secondsSinceLastDraw);
-    self.pacmanXVelocity = self.pacmanXVelocity - (self.acceleration.y * secondsSinceLastDraw);
+    if(m_frozen!=true)
+    {
+        self.pacmanYVelocity = self.pacmanYVelocity - (self.acceleration.x * secondsSinceLastDraw);
+        self.pacmanXVelocity = self.pacmanXVelocity - (self.acceleration.y * secondsSinceLastDraw);
     
-    CGFloat xDelta = secondsSinceLastDraw * self.pacmanXVelocity * 500;
-    CGFloat yDelta = secondsSinceLastDraw * self.pacmanYVelocity * 500;
+        CGFloat xDelta = secondsSinceLastDraw * self.pacmanXVelocity * 500;
+        CGFloat yDelta = secondsSinceLastDraw * self.pacmanYVelocity * 500;
     
-    self.currentPoint = CGPointMake(self.currentPoint.x + xDelta,
-                                    self.currentPoint.y + yDelta);
-    
+        self.currentPoint = CGPointMake(self.currentPoint.x + xDelta,
+                                        self.currentPoint.y + yDelta);
+    }
+    else
+    {
+        self.currentPoint  = self.previousPoint;
+        self.pacmanXVelocity=0;
+        self.pacmanXVelocity=0;
+    }
     [self movePacman];
-    
     self.lastUpdateTime = [NSDate date];
     
 }
@@ -148,9 +172,9 @@ bounce3.autoreverses = YES;
 - (void)collisionWithExit {
     
     if (CGRectIntersectsRect(self.pacman.frame, self.exit.frame)) {
-        
-        [self.motionManager stopAccelerometerUpdates];
-        
+
+        self.currentPoint  = CGPointMake(0, 144);
+        m_frozen=true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
                                                         message:@"You've won the game!"
                                                        delegate:self
@@ -158,6 +182,13 @@ bounce3.autoreverses = YES;
                                               otherButtonTitles:nil];
         [alert show];
         
+        int i=0;
+       for (UIImageView *image in self.wall)
+       {
+           image.center=CGPointMake(xpts[i],ypts[i]);
+           ++i;
+       }
+    
     }
     
 }
@@ -170,18 +201,31 @@ bounce3.autoreverses = YES;
     if (CGRectIntersectsRect(self.pacman.frame, ghostLayer1.frame)
         || CGRectIntersectsRect(self.pacman.frame, ghostLayer2.frame)
         || CGRectIntersectsRect(self.pacman.frame, ghostLayer3.frame) ) {
-        
+
         self.currentPoint  = CGPointMake(0, 144);
-        
+        m_frozen=true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                         message:@"Mission Failed!"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+
         
     }
-    
+
+
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex])
+    {
+        [self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:
+         ^(CMAccelerometerData *accelerometerData, NSError *error) {
+             [(id) self setAcceleration:accelerometerData.acceleration];
+             [self performSelectorOnMainThread:@selector(update) withObject:nil waitUntilDone:NO];
+         }];
+        m_frozen=false;
+    }
 }
 - (void)collsionWithWalls {
     
